@@ -6,13 +6,19 @@ from os import listdir
 class Ui_PhanMemThue(object):
     def setupUi(self, PhanMemThue):
         PhanMemThue.setObjectName("PhanMemThue")
-        PhanMemThue.resize(490, 664)
+        PhanMemThue.resize(490, 630)
         self.centralwidget = QtWidgets.QWidget(PhanMemThue)
         self.centralwidget.setObjectName("centralwidget")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
         self.tabWidget.setGeometry(QtCore.QRect(0, 0, 491, 621))
         self.tabWidget.setObjectName("tabWidget")
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.tabWidget.setFont(font)
+        self.tabWidget.setFocusPolicy(QtCore.Qt.ClickFocus)
         self.GenTemplateTab = QtWidgets.QWidget()
+        self.GenTemplateTab.setStyleSheet("background-color: #e6f2ff;")
         self.GenTemplateTab.setObjectName("GenTemplateTab")
         self.ExecuteBotton = QtWidgets.QPushButton(self.GenTemplateTab)
         self.ExecuteBotton.setGeometry(QtCore.QRect(30, 550, 421, 31))
@@ -22,6 +28,7 @@ class Ui_PhanMemThue(object):
         font.setWeight(75)
         self.ExecuteBotton.setFont(font)
         self.ExecuteBotton.setObjectName("ExecuteBotton")
+        self.ExecuteBotton.setStyleSheet("background-color: #1b4f59; color: white; font-weight: bold;")
         self.OutputGroupBox = QtWidgets.QGroupBox(self.GenTemplateTab)
         self.OutputGroupBox.setGeometry(QtCore.QRect(30, 330, 421, 201))
         font = QtGui.QFont()
@@ -40,6 +47,7 @@ class Ui_PhanMemThue(object):
         self.SelectExcelFileButton = QtWidgets.QPushButton(self.OutputExcelGroupBox)
         self.SelectExcelFileButton.setGeometry(QtCore.QRect(310, 30, 81, 21))
         self.SelectExcelFileButton.setObjectName("SelectExcelFileButton")
+        self.SelectExcelFileButton.setStyleSheet("background-color: #1b4f59; color: white; font-weight: bold;")
         self.OutputExcelPath = QtWidgets.QLineEdit(self.OutputExcelGroupBox)
         self.OutputExcelPath.setGeometry(QtCore.QRect(10, 30, 291, 21))
         self.OutputExcelPath.setObjectName("OutputExcelPath")
@@ -51,6 +59,7 @@ class Ui_PhanMemThue(object):
         self.SelectTemplateFolderButtom = QtWidgets.QPushButton(self.TemplateFolderGroupBox)
         self.SelectTemplateFolderButtom.setGeometry(QtCore.QRect(310, 30, 81, 21))
         self.SelectTemplateFolderButtom.setObjectName("SelectTemplateFolderButtom")
+        self.SelectTemplateFolderButtom.setStyleSheet("background-color: #1b4f59; color: white; font-weight: bold;")
         self.TemplateFolderPath = QtWidgets.QLineEdit(self.TemplateFolderGroupBox)
         self.TemplateFolderPath.setGeometry(QtCore.QRect(10, 30, 291, 21))
         self.TemplateFolderPath.setObjectName("TemplateFolderPath")
@@ -64,6 +73,7 @@ class Ui_PhanMemThue(object):
         self.InputGroupBox.setFont(font)
         self.InputGroupBox.setAutoFillBackground(True)
         self.InputGroupBox.setObjectName("InputGroupBox")
+        # self.InputGroupBox.setStyleSheet("background-color: red; font-weight: bold;")
         self.InputScriptFolderGroupBox = QtWidgets.QGroupBox(self.InputGroupBox)
         self.InputScriptFolderGroupBox.setGeometry(QtCore.QRect(10, 30, 401, 71))
         self.InputScriptFolderGroupBox.setAutoFillBackground(True)
@@ -71,6 +81,8 @@ class Ui_PhanMemThue(object):
         self.SelectScriptFolderButtom = QtWidgets.QPushButton(self.InputScriptFolderGroupBox)
         self.SelectScriptFolderButtom.setGeometry(QtCore.QRect(310, 30, 81, 21))
         self.SelectScriptFolderButtom.setObjectName("SelectScriptFolderButtom")
+        self.SelectScriptFolderButtom.setStyleSheet("background-color: #1b4f59; color: white; font-weight: bold;")
+
         self.ScriptsFolderPath = QtWidgets.QLineEdit(self.InputScriptFolderGroupBox)
         self.ScriptsFolderPath.setGeometry(QtCore.QRect(10, 30, 291, 21))
         self.ScriptsFolderPath.setObjectName("ScriptsFolderPath")
@@ -89,8 +101,9 @@ class Ui_PhanMemThue(object):
         area.setWidget(scrollAreaWidgetContents)
         layoutV = QtWidgets.QVBoxLayout(self.ListScriptFileScroll)
         layoutV.addWidget(area)
-        self.tabWidget.addTab(self.GenTemplateTab, "")
+        self.tabWidget.addTab(self.GenTemplateTab, "GenTemplateTab")
         self.GetDataTab = QtWidgets.QWidget()
+        self.GetDataTab.setStyleSheet("background-color: #f9ecf2;")
         self.GetDataTab.setObjectName("GetDataTab")
         self.InputGroupBox_S2 = QtWidgets.QGroupBox(self.GetDataTab)
         self.InputGroupBox_S2.setGeometry(QtCore.QRect(30, 20, 421, 501))
@@ -108,6 +121,7 @@ class Ui_PhanMemThue(object):
         self.SelectExcelFileButtom_S2 = QtWidgets.QPushButton(self.InputExcelFileGroupBox_S2)
         self.SelectExcelFileButtom_S2.setGeometry(QtCore.QRect(310, 30, 81, 21))
         self.SelectExcelFileButtom_S2.setObjectName("SelectExcelFileButtom_S2")
+        self.SelectExcelFileButtom_S2.setStyleSheet("background-color: #1b4f59; color: white; font-weight: bold;")
         self.ExcelFilePath_S2 = QtWidgets.QLineEdit(self.InputExcelFileGroupBox_S2)
         self.ExcelFilePath_S2.setText('')
         self.ExcelFilePath_S2.setGeometry(QtCore.QRect(10, 30, 291, 21))
@@ -134,6 +148,7 @@ class Ui_PhanMemThue(object):
         self.SelectTemplateFolderButtom_S2 = QtWidgets.QPushButton(self.InputTemplateFolderGroupBox_S2)
         self.SelectTemplateFolderButtom_S2.setGeometry(QtCore.QRect(310, 30, 81, 21))
         self.SelectTemplateFolderButtom_S2.setObjectName("SelectTemplateFolderButtom_S2")
+        self.SelectTemplateFolderButtom_S2.setStyleSheet("background-color: #1b4f59; color: white; font-weight: bold;")
         self.TemplateFolderPath_S2 = QtWidgets.QLineEdit(self.InputTemplateFolderGroupBox_S2)
         self.TemplateFolderPath_S2.setText('')
         self.TemplateFolderPath_S2.setGeometry(QtCore.QRect(10, 30, 291, 21))
@@ -146,7 +161,8 @@ class Ui_PhanMemThue(object):
         font.setWeight(75)
         self.ExecuteBotton_S2.setFont(font)
         self.ExecuteBotton_S2.setObjectName("ExecuteBotton_S2")
-        self.tabWidget.addTab(self.GetDataTab, "")
+        self.ExecuteBotton_S2.setStyleSheet("background-color: #1b4f59; color: white; font-weight: bold;")
+        self.tabWidget.addTab(self.GetDataTab, "GetDataTab")
         PhanMemThue.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(PhanMemThue)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 490, 21))
@@ -194,7 +210,7 @@ class Ui_PhanMemThue(object):
         self.SelectTemplateFolderButtom_S2.setText(_translate("PhanMemThue", "Select Folder"))
         self.ExecuteBotton_S2.setText(_translate("PhanMemThue", "Execute"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.GetDataTab), _translate("PhanMemThue", "Get Data"))
-        self.menuPh_n_m_m_thu.setTitle(_translate("PhanMemThue", "Phần mềm thuê"))
+        self.menuPh_n_m_m_thu.setTitle(_translate("PhanMemThue", ""))
 
     def select_script_folder(self):
         folder = QtWidgets.QFileDialog.getExistingDirectory()
@@ -202,13 +218,15 @@ class Ui_PhanMemThue(object):
         if self.ScriptsFolderPath.text() != '':
             for i in reversed(range(self.LayoutVScroll.count())): 
                 self.LayoutVScroll.itemAt(i).widget().setParent(None)
-            self.select_all = QtWidgets.QCheckBox('Select all')
+            self.select_all = QtWidgets.QCheckBox('SELECT ALL')
             self.select_all.stateChanged.connect(self.check_all_file)
-            self.LayoutVScroll.addWidget(self.select_all, alignment=QtCore.Qt.AlignCenter)
+            self.select_all.setStyleSheet("color: #009900; font-weight: bold;")
+            self.LayoutVScroll.addWidget(self.select_all)#, alignment=QtCore.Qt.AlignCenter)
+            
             list_files = listdir(self.ScriptsFolderPath.text())
             list_files = [file for file in listdir(self.ScriptsFolderPath.text()) if file[-4:]=='.VBS']
             for file in list_files:
-                cb = QtWidgets.QCheckBox(file)
+                cb = QtWidgets.QCheckBox(file[:-4])
                 self.LayoutVScroll.addWidget(cb)
     
     def select_template_folder(self):
@@ -225,12 +243,13 @@ class Ui_PhanMemThue(object):
         if self.TemplateFolderPath_S2.text() != '' and self.ExcelFilePath_S2.text() != '':
             for i in reversed(range(self.LayoutVScroll_S2.count())): 
                 self.LayoutVScroll_S2.itemAt(i).widget().setParent(None)
-            self.select_all_S2 = QtWidgets.QCheckBox('Select all')
+            self.select_all_S2 = QtWidgets.QCheckBox('SELECT ALL')
+            self.select_all_S2.setStyleSheet("color: #009900; font-weight: bold;")
             self.select_all_S2.stateChanged.connect(self.check_all_file_S2)
-            self.LayoutVScroll_S2.addWidget(self.select_all_S2, alignment=QtCore.Qt.AlignCenter)
+            self.LayoutVScroll_S2.addWidget(self.select_all_S2) #, alignment=QtCore.Qt.AlignCenter)
             script_files = get_matching_scripts(self.TemplateFolderPath_S2.text(), self.ExcelFilePath_S2.text())
             for file in script_files:
-                cb = QtWidgets.QCheckBox(file)
+                cb = QtWidgets.QCheckBox(file[:-4])
                 self.LayoutVScroll_S2.addWidget(cb)
 
     def select_excel_file_tab2(self):
@@ -281,11 +300,14 @@ class Ui_PhanMemThue(object):
             msg = "Please Select Excel File!"
             self.show_msg_error(msg)
         else: 
-            handle_script_folder(list_script_files, self.ScriptsFolderPath.text(), self.TemplateFolderPath.text(), self.OutputExcelPath.text())
-            msg = "Generate Template Done!"
-            self.show_msg_error(msg, title='Success')
-            # Change tab
-            self.tabWidget.setCurrentIndex(1)
+            if -1 == handle_script_folder(list_script_files, self.ScriptsFolderPath.text(), self.TemplateFolderPath.text(), self.OutputExcelPath.text()):
+                msg = f'Permission denied to write to {self.OutputExcelPath.text()}'
+                self.show_msg_error(msg)
+            else:
+                msg = "Generate Template Done!"
+                self.show_msg_error(msg, title='Success')
+                # Change tab
+                self.tabWidget.setCurrentIndex(1)
 
     def run_script_file(self):
         # Get list of script files need to handle
@@ -304,9 +326,12 @@ class Ui_PhanMemThue(object):
             msg = "Please Select Excel File!"
             self.show_msg_error(msg)
         else: 
-            download_data(self.ExcelFilePath_S2.text(), self.TemplateFolderPath_S2.text(), list_script_files)
-            msg = "Generate Template Done!"
-            self.show_msg_error(msg, title='Success')
+            if -1 == download_data(self.ExcelFilePath_S2.text(), self.TemplateFolderPath_S2.text(), list_script_files):
+                msg = f'Permission denied to write to {self.ExcelFilePath_S2.text()}'
+                self.show_msg_error(msg)
+            else:
+                msg = "Generate Template Done!"
+                self.show_msg_error(msg, title='Success')
             # # Change tab
             # self.tabWidget.setCurrentIndex(1)
     
