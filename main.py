@@ -258,7 +258,7 @@ class Ui_PhanMemThue(object):
         if self.TemplateFolderPath_S2.text() != '' and self.ExcelFilePath_S2.text() != '':
             for i in reversed(range(self.LayoutVScroll_S2.count())): 
                 self.LayoutVScroll_S2.itemAt(i).widget().setParent(None)
-            self.select_all_S2 = QtWidgets.QCheckBox('Select all')
+            self.select_all_S2 = QtWidgets.QCheckBox('SELECT ALL')
             self.select_all_S2.stateChanged.connect(self.check_all_file_S2)
             self.LayoutVScroll_S2.addWidget(self.select_all_S2, alignment=QtCore.Qt.AlignCenter)
             script_files = get_matching_scripts(self.TemplateFolderPath_S2.text(), self.ExcelFilePath_S2.text())
@@ -285,9 +285,9 @@ class Ui_PhanMemThue(object):
         list_script_files = []
         for i in range(self.LayoutVScroll.count()):
             wid = self.LayoutVScroll.itemAt(i).widget()
-            if(wid.text() != 'Select all'):
+            if(wid.text() != 'SELECT ALL'):
                 if wid.isChecked():
-                    list_script_files.append(wid.text())
+                    list_script_files.append(wid.text()+'.VBS')
     
         # Call function to handle
         if self.ScriptsFolderPath.text() == '':
@@ -314,9 +314,9 @@ class Ui_PhanMemThue(object):
         list_script_files = []
         for i in range(self.LayoutVScroll_S2.count()):
             wid = self.LayoutVScroll_S2.itemAt(i).widget()
-            if(wid.text() != 'Select all'):
+            if(wid.text() != 'SELECT ALL'):
                 if wid.isChecked():
-                    list_script_files.append(wid.text())
+                    list_script_files.append(wid.text()+'.VBS')
 
         # Call function to handle
         if self.TemplateFolderPath_S2.text() == '':

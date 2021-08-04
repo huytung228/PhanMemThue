@@ -1,3 +1,4 @@
+import re
 from pandas import read_excel
 from os import listdir, system
 from os.path import join
@@ -29,13 +30,17 @@ def download_data(excel_file, template_folder, list_scripts_match):
         for index, row in df.iterrows():
             if isNaN(row['Status']) or row['Status'] == '':
                 text = sub('{{.+?}}', lambda match: match_template(match, row), template_text)
-                # out_file = script[:-4] + f'({index}).VBS'
-                out_file = 'temp.VBS'
-                with open(out_file, 'w') as f:
-                    f.write(text)
-                system(f"start {out_file}")
+                out_file = script[:-4] + f'({index}).VBS'
+                # out_file = 'temp.VBS'
+                # with open(out_file, 'w') as f:
+                #     f.write(text)
+                # system(f"start {out_file}")
                 df['Status'][index] = 'Success'
-        write2excel(excel_file,script[:-4],df)  
+        try:
+            write2excel(excel_file,script[:-4],df)  
+        except:
+            return -1
+    return 0
 
 if __name__ == '__main__':
     download_data('a.xlsx', './template', ['04_3.VBS', '5_3b_temp.VBS', '05_3b.VBS'])

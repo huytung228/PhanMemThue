@@ -113,7 +113,12 @@ def handle_script_folder(list_script_files, folder_path, template_folder, excel_
     # Write to excel file
     if len(list_df) != 0:
         for script_name, df in list_df.items():
-            write2excel(excel_file,script_name[:-4],df)
+            try:
+                write2excel(excel_file,script_name[:-4],df)
+            except:
+                return -1
+    
+    return 0
 
     # # Get list of current sheet name in excel file
     # df_excel = pd.read_excel(excel_file, None, index_col=0)
